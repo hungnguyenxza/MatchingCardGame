@@ -1,0 +1,39 @@
+<mat-toolbar align="end">
+    <span></span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button (click)="playTools.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+</mat-toolbar>
+<mat-sidenav-container class="h-100">
+    <mat-sidenav #playTools mode="side" position="end">
+        <div class="p-3">
+            <p>
+                <button mat-button [matMenuTriggerFor]="menu">Mode</button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="changeMode(1)">Easy</button>
+                    <button mat-menu-item (click)="changeMode(2)">Medium</button>
+                    <button mat-menu-item (click)="changeMode(3)">Hard</button>
+                </mat-menu>
+            </p>
+            <p class="text-center">
+                <button matTooltip="Refresh" [matTooltipPosition]="'left'" (click)="refresh();" class="btn-refresh"
+                    mat-mini-fab color="primary">
+                    <mat-icon>refresh</mat-icon>
+                </button>
+            </p>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content class="container play-content">
+        <div class="play-container h-100">
+            <div class="row play-card-row" *ngFor="let i of width">
+                <div class="col play-card-column px-0" (click)="openCard(cards[i*height.length + j])"
+                    *ngFor="let j of height">
+                    <app-card class="w-100 h-100"
+                        [hidden]="!(cards[i*height.length + j].isClicked || cards[i*height.length + j].isSolved)"
+                        [card]="cards[i*height.length + j]"></app-card>
+                </div>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

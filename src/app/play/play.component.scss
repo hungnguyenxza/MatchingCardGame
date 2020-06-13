@@ -1,0 +1,31 @@
+.play-content {
+    margin: auto !important;
+    .play-container {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        .play-card-row {
+            flex: 1;
+            .play-card-column {
+                border: 1px solid #eee;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: large;
+                app-card {
+                    display: flex;
+                    align-items: stretch;
+                }
+            }
+        }
+    }
+}
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+:host(app-play) {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
