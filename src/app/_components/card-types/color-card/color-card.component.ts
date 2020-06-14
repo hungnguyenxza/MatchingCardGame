@@ -10,9 +10,9 @@ export class ColorCardComponent implements OnInit {
 
   @Input() colorCard: ColorCard;
 
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }
